@@ -21,7 +21,7 @@ public class StartApplcation {
             StringBuilder buldReques = new StringBuilder();
             buldReques.append(templateUrl);
           //  Vacancy stringPosts = restTemplate.getForObject("https://api.hh.ru/vacancies/4694457", Vacancy.class);
-            PageVacancies stringPosts = restTemplate.getForObject("https://api.hh.ru/vacancies?date_from=2021-03-01&page=9&per_page=200", PageVacancies.class); //&page=19&per_page=20
+            PageVacancies stringPosts = restTemplate.getForObject("https://api.hh.ru/vacancies?date_from=2021-03-01", PageVacancies.class); //&page=19&per_page=20
 
             for (PropertiosForGetVacansy propertios : stringPosts.getItems()) {
                 buldReques.append(propertios.getIdVacansy());
