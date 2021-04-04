@@ -3,15 +3,24 @@ package parcer.app.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.lang.Nullable;
+import parcer.app.vo.KeySkillVO;
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Vacancy {
+
+ public ArrayList<KeySkill> getKey_skills(){ return key_skills; }
+
 
     /**
      *Идентификатор вакансии
@@ -20,6 +29,7 @@ public class Vacancy {
     private String id;
     @JsonProperty("area")
     private Area area;
+
     private UUID uniqueId;
     /**
      *Описание вакансии
@@ -42,6 +52,7 @@ public class Vacancy {
     @Nullable
     @JsonProperty("salary")
     private Salary salary;
+
     /**
      *Дата и время создания вакансии
      */

@@ -1,5 +1,7 @@
 package parcer.app.vo;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.Table;
@@ -10,10 +12,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Embedded;
 import javax.persistence.JoinColumn;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "full_description_vacancy")
 public class VacancyVO {
 

@@ -1,11 +1,14 @@
 package parcer.app.dto;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.lang.Nullable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@Getter @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-class Salary {
+public class Salary {
     /**
      * Нижняя граница вилки оклада.
      */
