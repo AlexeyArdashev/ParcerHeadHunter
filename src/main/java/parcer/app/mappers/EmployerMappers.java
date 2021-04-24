@@ -13,6 +13,7 @@ public abstract class EmployerMappers {
      * @return dto
      */
     public abstract Employer toDto(EmployerVO vo);
+
     /**
      * Преобразование.
      *

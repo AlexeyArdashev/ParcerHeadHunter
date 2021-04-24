@@ -6,11 +6,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.UUID;
-@Getter @Setter
+
+@Getter
+@Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class KeySkill {
 
-    public String getName() { return name; }
     @JsonProperty("name")
     private String name;
     private UUID id;

@@ -2,19 +2,12 @@ package parcer.app.vo;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 import org.springframework.lang.Nullable;
 
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.Embedded;
-import javax.persistence.JoinColumn;
-import java.time.LocalDateTime;
+import javax.persistence.*;
 import java.util.List;
-import java.util.UUID;
 
 @Entity
 @Getter
@@ -23,31 +16,43 @@ import java.util.UUID;
 public class VacancyVO {
 
     @Id
-    @Column(name = "id", nullable = false)
-    private UUID uniqueId;
-    @Column(name = "id_ vacancy")
+  //  @Column(name = "id", nullable = false)
+   // private UUID uniqueId;
+    @Column(name = "id_vacancy", nullable = false)
     private String id;
 
     @ManyToOne
+    @NotFound(action = NotFoundAction.IGNORE)
     @JoinColumn(name = "area_vacancy", nullable = true)
     private AreaVO area;
-    /**
-     *Описание вакансии
-     */
-    @Column(name = "description")
+
+    @Column(name = "description", length = 8000)
     private String description;
 
-    @OneToMany
-    @JoinColumn(name = "key_skils")
+    /*
+    @ManyToMany
+    @NotFound(action = NotFoundAction.IGNORE)
+    @JoinTable (name="vacancy_skill",
+            joinColumns=@JoinColumn (name="vacancy_id"),
+            inverseJoinColumns=@JoinColumn(name="skill_id"))
     private List<KeySkillVO> key_skills;
 
-    @Column(name = "experiens")
+    @ManyToOne
+    @NotFound(action = NotFoundAction.IGNORE)
+    @JoinColumn(name = "experiens")
     private ExperiensVO experiens;
-    @OneToMany
-    @JoinColumn(name = "specialization_vacancy")
-    private  List <SpecializationVO> specializations;
+    */
+
+    @ManyToMany (fetch = FetchType.EAGER)
+    @NotFound(action = NotFoundAction.IGNORE)
+    @JoinTable (name="vacancy_specialization",
+            joinColumns=@JoinColumn (name="vacancy_id"),
+            inverseJoinColumns=@JoinColumn(name="specialization_id"))
+    private List<SpecializationVO> specializations;
+
     @Nullable
     @ManyToOne
+    @NotFound(action = NotFoundAction.IGNORE)
     @JoinColumn(name = "employer_company", nullable = true)
     private EmployerVO employer;
 

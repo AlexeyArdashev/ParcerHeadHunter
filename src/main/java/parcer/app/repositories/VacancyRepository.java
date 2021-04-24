@@ -5,5 +5,8 @@ import parcer.app.vo.VacancyVO;
 
 import java.util.UUID;
 
-public interface VacancyRepository extends JpaRepository<VacancyVO, UUID> {
+
+public interface VacancyRepository extends JpaRepository<VacancyVO, String> {
 }
+
+

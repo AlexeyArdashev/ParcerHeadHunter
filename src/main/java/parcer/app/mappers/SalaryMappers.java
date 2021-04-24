@@ -13,6 +13,7 @@ public abstract class SalaryMappers {
      * @return dto
      */
     public abstract Salary toDto(SalaryVO vo);
+
     /**
      * Преобразование.
      *

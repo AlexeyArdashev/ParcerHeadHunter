@@ -3,12 +3,14 @@ package parcer.app.service;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
+
 @AllArgsConstructor
 @NoArgsConstructor
-
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PageVacancies {
     @JsonProperty("found")
@@ -21,7 +23,8 @@ public class PageVacancies {
     private int page;
     @JsonProperty("items")
     ArrayList<PropertiosForGetVacansy> items;
-    public ArrayList<PropertiosForGetVacansy> getItems(){
+
+    public ArrayList<PropertiosForGetVacansy> getItems() {
         return items;
     }
 }

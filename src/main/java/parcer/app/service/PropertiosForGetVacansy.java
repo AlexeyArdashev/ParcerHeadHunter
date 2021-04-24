@@ -8,7 +8,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PropertiosForGetVacansy {
     @JsonProperty("id")
     private String idVacansy;
-    String getIdVacansy(){
+
+    String getIdVacansy() {
         return idVacansy;
     }
 }

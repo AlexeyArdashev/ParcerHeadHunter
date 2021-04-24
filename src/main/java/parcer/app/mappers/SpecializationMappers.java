@@ -1,4 +1,5 @@
 package parcer.app.mappers;
+
 import org.mapstruct.Mapper;
 import parcer.app.dto.Specialization;
 import parcer.app.vo.SpecializationVO;
@@ -12,6 +13,7 @@ public abstract class SpecializationMappers {
      * @return dto
      */
     public abstract Specialization toDto(SpecializationVO vo);
+
     /**
      * Преобразование.
      *

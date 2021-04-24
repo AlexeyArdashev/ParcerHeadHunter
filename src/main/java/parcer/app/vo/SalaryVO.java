@@ -6,7 +6,8 @@ import org.springframework.lang.Nullable;
 
 import javax.persistence.Embeddable;
 
-@Getter @Setter
+@Getter
+@Setter
 @Embeddable
 public class SalaryVO {
 

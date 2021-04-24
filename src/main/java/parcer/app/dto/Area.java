@@ -5,16 +5,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter
+@Getter
+@Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Area {
     /**
-     *Url получения информации о регионе
+     * Url получения информации о регионе
      */
     @JsonProperty("url")
     private String url;
     /**
-     *Идентификатор региона
+     * Идентификатор региона
      */
     @JsonProperty("id")
     private String id;
@@ -24,7 +25,7 @@ public class Area {
     @JsonProperty("name")
     private String name;
 
-    public String toString(){
+    public String toString() {
         StringBuilder str = new StringBuilder();
         str.append("Description Area:\n");
         str.append("name: " + name + "\n");

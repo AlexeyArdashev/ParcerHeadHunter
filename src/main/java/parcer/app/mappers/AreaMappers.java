@@ -1,4 +1,5 @@
 package parcer.app.mappers;
+
 import parcer.app.dto.Area;
 import parcer.app.vo.AreaVO;
 import org.mapstruct.Mapper;
@@ -12,6 +13,7 @@ public abstract class AreaMappers {
      * @return dto
      */
     public abstract Area toDto(AreaVO vo);
+
     /**
      * Преобразование.
      *
