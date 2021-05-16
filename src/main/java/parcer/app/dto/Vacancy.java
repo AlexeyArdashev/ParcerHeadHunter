@@ -38,10 +38,10 @@ public class Vacancy {
      * Информация о ключевых навыках, заявленных в вакансии. Список может быть пустым.
      */
     @Nullable
-  //  @JsonProperty("key_skills")
-  //  private ArrayList<KeySkill> key_skills;
-  //  @JsonProperty("experience")
-  //  private Experiens experience;
+    @JsonProperty("key_skills")
+    private ArrayList<KeySkill> key_skills;
+    @JsonProperty("experience")
+    private Experiens experiens;
     @JsonProperty("specializations")
     private ArrayList<Specialization> specializations;
     @Nullable

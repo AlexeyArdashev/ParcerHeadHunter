@@ -29,7 +29,6 @@ public class VacancyVO {
     @Column(name = "description", length = 8000)
     private String description;
 
-    /*
     @ManyToMany
     @NotFound(action = NotFoundAction.IGNORE)
     @JoinTable (name="vacancy_skill",
@@ -41,7 +40,7 @@ public class VacancyVO {
     @NotFound(action = NotFoundAction.IGNORE)
     @JoinColumn(name = "experiens")
     private ExperiensVO experiens;
-    */
+
 
     @ManyToMany (fetch = FetchType.EAGER)
     @NotFound(action = NotFoundAction.IGNORE)

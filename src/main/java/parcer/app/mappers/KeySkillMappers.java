@@ -37,7 +37,7 @@ public class KeySkillMappers {
     public KeySkillVO toVO(KeySkill dto) {
         Optional<KeySkillVO> rezult = keySkillRepository.findByName(dto.getName());
         if (rezult.isPresent()) {
-            System.out.println("finde! " + rezult.get().getName());
+          //  System.out.println("finde! " + rezult.get().getName());
             return rezult.get();
         }
         return ( new KeySkillVO(UUID.randomUUID(), dto.getName()) );

@@ -6,8 +6,8 @@ import org.mapstruct.Mapper;
 import parcer.app.vo.VacancyVO;
 
 @Mapper(componentModel = "spring",
-        uses = {AreaMappers.class, /*KeySkillMappers.class,*/ SpecializationMappers.class,
-                SalaryMappers.class, EmployerMappers.class, /*ExperiensMappers.class*/})
+        uses = {AreaMappers.class, KeySkillMappers.class, SpecializationMappers.class,
+                SalaryMappers.class, EmployerMappers.class, ExperiensMappers.class})
 public abstract class VacancyMappers {
     /**
      * Преобразование.

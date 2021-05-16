@@ -7,17 +7,18 @@ import parcer.app.vo.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class SaverToDataBase {
-  //  @Autowired
-   // private KeySkillRepository skillRepository;
+    @Autowired
+    private KeySkillRepository skillRepository;
     @Autowired
     private VacancyRepository vacancyRepository;
     @Autowired
     private EmployerRepository employerRepository;
-   // @Autowired
-   // private ExperiensRepository experiensRepository;
+    @Autowired
+    private ExperiensRepository experiensRepository;
     @Autowired
     private SpecializationRepository specializationRepository;
     @Autowired
@@ -42,15 +43,15 @@ public class SaverToDataBase {
             System.out.println("Не удалось сохранить данные о компании. ");
             return false;
         }
-       // System.out.println("Сохранение данных требуемого опыта работы");
-       // System.out.printf ("Значение experience %1\n",vacVo.getExperiens() != null);
-      //  Optional<ExperiensVO> experiens = experiensRepository.findById(vacVo.getExperiens().getId());
-      //  if (!experiens.isPresent()) {
-      //      experiensRepository.saveAndFlush(vacVo.getExperiens());
-     //   }
+        System.out.println("Сохранение данных требуемого опыта работы");
+      //  System.out.printf ("Значение experience %1\n",vacVo.experiens != null); // throw exeption invocation of init method failed
+        Optional<ExperiensVO> experiens = experiensRepository.findById(vacVo.getExperiens().getId());
+        if (!experiens.isPresent()) {
+            experiensRepository.saveAndFlush(vacVo.getExperiens());
+        }
 
-      //  System.out.println("Сохранение ключевых навыков");
-    //    saveKeySkils( vacVo.getKey_skills() );
+        System.out.println("Сохранение ключевых навыков");
+        saveKeySkils( vacVo.getKey_skills() );
         System.out.println("Сохранение данных о професиональной области");
         saveSpecializations(vacVo.getSpecializations());
         System.out.println("Сохранение полного описания вакансии");
@@ -60,7 +61,7 @@ public class SaverToDataBase {
         }
         return true;
     }
-/*
+
     private void saveKeySkils(List<KeySkillVO> skils) {
         for (KeySkillVO skill : skils) {
             Optional<KeySkillVO> skillOpt = skillRepository.findByName(skill.getName());
@@ -74,7 +75,7 @@ public class SaverToDataBase {
             }
         }
     }
- */
+
 
     private void saveSpecializations(List<SpecializationVO> specializations) {
         for (SpecializationVO specialization : specializations) {

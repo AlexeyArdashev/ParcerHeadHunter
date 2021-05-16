@@ -26,11 +26,10 @@ public class KeySkillVO {
     @Column(name = "id",  nullable = false)
     private UUID id;
 
-   /* @ManyToMany
+    @ManyToMany
     @NotFound(action = NotFoundAction.IGNORE)
     @JoinTable (name="vacancy_skill",
             joinColumns=@JoinColumn (name="skill_id"),
             inverseJoinColumns=@JoinColumn(name="vacancy_id"))
     private List<VacancyVO> vacancies;
-    */
 }
