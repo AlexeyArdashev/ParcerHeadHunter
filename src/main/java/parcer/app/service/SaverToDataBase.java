@@ -26,6 +26,12 @@ public class SaverToDataBase {
 
     public boolean saveToDataBase( VacancyVO vacVo ) {
         System.out.println("---------------------*****************---------------------");
+        Optional<VacancyVO> fromDB = vacancyRepository.findById(vacVo.getId());
+        if (fromDB.isPresent()) {
+            System.out.printf("Вакансия %s с идентивикатором %s уже есть в БД. \n",
+                    vacVo.getName(), vacVo.getId());
+            return true;
+        }
         System.out.printf("Начало сохранения данных вакансии %s в БД\n", vacVo.getId());
         Optional<AreaVO> area = areaRepository.findById(vacVo.getArea().getId());
         System.out.println("Сохранение данных о местополежении вакансии");
@@ -55,10 +61,7 @@ public class SaverToDataBase {
         System.out.println("Сохранение данных о професиональной области");
         saveSpecializations(vacVo.getSpecializations());
         System.out.println("Сохранение полного описания вакансии");
-        Optional<VacancyVO> fromDB = vacancyRepository.findById(vacVo.getId());
-        if (!fromDB.isPresent()) {
-            vacancyRepository.saveAndFlush(vacVo);
-        }
+        vacancyRepository.saveAndFlush(vacVo);
         return true;
     }
 

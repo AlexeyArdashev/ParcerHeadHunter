@@ -14,7 +14,6 @@ import java.util.List;
 @Setter
 @Table(name = "full_description_vacancy")
 public class VacancyVO {
-
     @Id
   //  @Column(name = "id", nullable = false)
    // private UUID uniqueId;

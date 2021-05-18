@@ -6,8 +6,6 @@ import parcer.app.dto.Vacancy;
 import parcer.app.mappers.VacancyMappers;
 import java.util.ArrayList;
 
-
-
 @Service
 public class FinderVacancy {
     @Autowired
@@ -20,8 +18,8 @@ public class FinderVacancy {
 
         hhClient.FillingIdVacacyesToday();
         ArrayList <String> vacanciesOnId = hhClient.getIdVacancyes();
-        for ( int i = 0 ; i < 200 ; i++) { // 200 - для теста, нужно написать (String id : vacanciesOnId)
-            Vacancy vac = hhClient.getVacancy(vacanciesOnId.get(i));
+        for ( String id : vacanciesOnId ) {
+            Vacancy vac = hhClient.getVacancy( id );
             System.out.println("Получена вакансия: " + vac.getId() + "  Название: " +
                     vac.getName());
             saverToDataBase.saveToDataBase( vacancyMappers.toVO(vac));

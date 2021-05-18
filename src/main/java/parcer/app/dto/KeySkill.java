@@ -11,7 +11,6 @@ import java.util.UUID;
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class KeySkill {
-
     @JsonProperty("name")
     private String name;
     private UUID id;
